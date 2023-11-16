@@ -18,8 +18,6 @@ import org.springframework.web.client.HttpClientErrorException;
 import java.time.Duration;
 
 
-
-
 @RestController
 @RequestMapping("/api/v1/calculator")
 public class CalculatorController {

@@ -6,9 +6,11 @@ import java.time.LocalDateTime;
 
 @Entity
 @AllArgsConstructor
+@NoArgsConstructor
 @EqualsAndHashCode
 @Getter
 @Setter
+@Builder
 public class RequestResponseLog {
 
     @Id
@@ -25,9 +27,12 @@ public class RequestResponseLog {
     private LocalDateTime localDateTime;
 
     @Column
-    private String requestBody;
+    private String request;
 
     @Column(length = 5000)
-    private String responseBody;
+    private String response;
+
+    @Column
+    private String httpCode;
 
 }
