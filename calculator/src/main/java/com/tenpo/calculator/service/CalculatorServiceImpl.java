@@ -16,6 +16,10 @@ public class CalculatorServiceImpl implements CalculatorService {
     @Autowired
     PercentageService percentageService;
 
+//    public CalculatorServiceImpl(PercentageService percentageService) {
+//        this.percentageService = percentageService;
+//    }
+
     //Caculates the result of the operation
     //operand1 + operand2 + percentageReceivedOf(operand1 + operand2)
     private ResultDTO calculateResult(Double operand1, Double operand2) {

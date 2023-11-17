@@ -26,15 +26,12 @@ public class RequestResponseLogTest {
         Assertions.assertEquals(requestResponseLog.getRequest(),"request");
         Assertions.assertEquals(requestResponseLog.getResponse(),"response");
         Assertions.assertEquals(requestResponseLog.getHttpCode(),"200");
-
-
     }
 
     @Test
     void constructor() {
         LocalDateTime localDateTime = LocalDateTime.now();
         RequestResponseLog requestResponseLog = new RequestResponseLog(null,"testURL","GET",localDateTime,"request","response","200");
-
         Assertions.assertEquals(requestResponseLog.getUrl(),"testURL");
         Assertions.assertEquals(requestResponseLog.getMethod(),"GET");
         Assertions.assertEquals(requestResponseLog.getLocalDateTime(),localDateTime);
@@ -43,7 +40,6 @@ public class RequestResponseLogTest {
         Assertions.assertEquals(requestResponseLog.getHttpCode(),"200");
 
         Assertions.assertNotNull(new RequestResponseLog());
-
     }
 
     @Test

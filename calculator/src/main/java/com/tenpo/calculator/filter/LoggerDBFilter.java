@@ -42,7 +42,7 @@ public class LoggerDBFilter extends OncePerRequestFilter {
         return requestLog;
     }
 
-    // This filters get the request and responses to save them into the DB
+    // This filter get the request and responses to save them into the DB
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest,
                                     HttpServletResponse httpServletResponse,

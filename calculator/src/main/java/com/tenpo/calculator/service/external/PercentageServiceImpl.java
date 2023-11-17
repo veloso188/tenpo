@@ -8,6 +8,7 @@ import com.tenpo.calculator.service.LoggerDBService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Profile;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.retry.annotation.Backoff;
@@ -30,6 +31,10 @@ public class PercentageServiceImpl implements PercentageService {
     @Autowired
     LoggerDBService loggerDBService;
 
+    public RestTemplate getRestTemplate() {
+        return new RestTemplate();
+    }
+
     // This method is for getting the information from the external service, the retry policy is managed here
     @Override
     @Retryable(retryFor = { Exception.class },
@@ -39,7 +44,8 @@ public class PercentageServiceImpl implements PercentageService {
         log.info("+Percentage Service");
         ResponseEntity<String> response = null;
         try {
-            RestTemplate restTemplate = new RestTemplate();
+            //RestTemplate restTemplate = new RestTemplate();
+            RestTemplate restTemplate = this.getRestTemplate();
             response = restTemplate.getForEntity(percentageServiceURL , String.class);
 
             PercentageDTO percentageDTO;
@@ -61,7 +67,7 @@ public class PercentageServiceImpl implements PercentageService {
         return;
 
     }
-    //Afeter no success retry whe throw the exception
+    //After no success retry whe throw the exception
     @Recover
     public void recover(Exception exception) {
         log.error("Percentage service is off line");

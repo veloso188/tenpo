@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 
 @Slf4j
 @ControllerAdvice
-public class HandlerException {
+public class GlobalExceptionHandler {
     private static final String GENERIC_ERROR_MESSAGE = "Error";
     @ExceptionHandler(HttpClientErrorException.class)
     public ResponseEntity<ExceptionMessageDTO> httpClientErrorException (HttpServletRequest httpServletRequest, HttpClientErrorException httpClientErrorException) {
