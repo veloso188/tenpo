@@ -1,11 +1,9 @@
 package com.tenpo.mockserver.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @AllArgsConstructor
+@NoArgsConstructor
 @EqualsAndHashCode
 @Getter
 @Setter
