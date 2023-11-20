@@ -1,0 +1,227 @@
+{
+	"info": {
+		"_postman_id": "95c6a742-394c-4562-9623-87e1072688ef",
+		"name": "Calculator",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19701847"
+	},
+	"item": [
+		{
+			"name": "getValue",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/calculator/getValue?operand1=11.2&operand2=12.5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"calculator",
+						"getValue"
+					],
+					"query": [
+						{
+							"key": "size",
+							"value": "10",
+							"disabled": true
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "operand1",
+							"value": "11.2"
+						},
+						{
+							"key": "operand2",
+							"value": "12.5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getValueNotFound",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/calculator/getVdddalue?operand1=11.2&operand2=12.5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"calculator",
+						"getVdddalue"
+					],
+					"query": [
+						{
+							"key": "size",
+							"value": "10",
+							"disabled": true
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "operand1",
+							"value": "11.2"
+						},
+						{
+							"key": "operand2",
+							"value": "12.5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getValueBadRequest",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/calculator/getValue?operand2=12.5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"calculator",
+						"getValue"
+					],
+					"query": [
+						{
+							"key": "size",
+							"value": "10",
+							"disabled": true
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "operand1",
+							"value": "11.2",
+							"disabled": true
+						},
+						{
+							"key": "operand2",
+							"value": "12.5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getValueBadRequestBadRequest2",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/calculator/getValue?operand1=zz&operand2=12.5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"calculator",
+						"getValue"
+					],
+					"query": [
+						{
+							"key": "size",
+							"value": "10",
+							"disabled": true
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "operand1",
+							"value": "zz"
+						},
+						{
+							"key": "operand2",
+							"value": "12.5"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

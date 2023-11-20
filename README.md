@@ -9,14 +9,16 @@
 1) Download the `docker-compose` file from `tenpo/calculator`
 2) Go to the download folder and run `docker-compose up -d`
 3) Test the calculator service on http://localhost:8080/swagger-ui/index.html
-4) Test the calculator and mock server by the postman collection provided in the email
+4) Test the calculator and mock server by the postman collection provided `/postman` of each project
 
 ### Running the application from IDE.
 1) Clone calculator and mock-server projects from git
 2) Replace the `docker-compose.yml` file content with `docker-compose.local`
-3) update the db and `percentage.service` url to `localhost`
-4) run `docker-compose up -d`
-5) start calculator / mock-server and run the test
+3) Update the db and `percentage.service` url to `localhost`
+4) Run `docker-compose up -d`
+5) Start calculator / mock-server
+6) Test the calculator service on http://localhost:8080/swagger-ui/index.html
+7) Test the calculator and mock server by the postman collection provided `/postman` of each project
 
 ### Considerations
 1) The database is in create mode, so with each restart the data will be lost. If it is required it can be changed form application.propreties file
@@ -54,14 +56,17 @@ mock_server.percentage=10.0
 1) Descargar el archivo `docker-compose` de `tenpo/calculator`
 2) Posicionarse en la carpeta donde se descargó el archivo y ejecutar `docker-compose up -d`
 3) Probar el servicio calculator en http://localhost:8080/swagger-ui/index.html
-4) Probar el serrvicio calculator y mock-server con las colecciones postman enviadas en el correo
+4) Probar el serrvicio calculator y mock-server con las colecciones postman provistas en `/postman` de cada proyecto
 
 ### Ejecutando la aplicación desde el entorno de desarrollo local.
 1) Clonar calculator y mock-server projects desde git
 2) Reemplazar el contenido del archivo `docker-compose.yml` con el de `docker-compose.local`
 3) Actualizar a localhost las urls de la base de datos y del servicio percentage con localhost
 4) Ejecutar `docker-compose up -d`
-5) Iniciar calculator / mock-server y ejecutar las pruebas deseadas
+5) Iniciar calculator / mock-server 
+6) Probar el servicio calculator en http://localhost:8080/swagger-ui/index.html
+7) Probar el serrvicio calculator y mock-server con las colecciones postman provistas en `/postman` de cada proyecto
+
 
 ### Consideraciones
 1) La base de datos esta configurada en modo de auto creación, por lo que en cada reinicio se limpiará todo su contenido. Si se necesita se puede modificar en el archivo application.propreties 
