@@ -31,8 +31,16 @@ public class PercentageServiceImpl implements PercentageService {
     @Autowired
     LoggerDBService loggerDBService;
 
+    private RestTemplate restTemplateForTest;
+
+
     public RestTemplate getRestTemplate() {
-        return new RestTemplate();
+        if (restTemplateForTest==null) return new RestTemplate();
+        else return restTemplateForTest;
+    }
+
+    public void setRestTemplateForTest(RestTemplate restTemplateForTest) {
+        this.restTemplateForTest = restTemplateForTest;
     }
 
     // This method is for getting the information from the external service, the retry policy is managed here

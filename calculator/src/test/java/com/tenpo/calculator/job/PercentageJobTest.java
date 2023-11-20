@@ -15,14 +15,14 @@ import static org.mockito.Mockito.doNothing;
 
 public class PercentageJobTest {
 
-    @MockBean
-    PercentageJob percentageJob;
+    @InjectMocks
+    PercentageJob percentageJobMock;
     @Mock
     PercentageServiceImpl PercentageServiceImplMock;
 
     @Test
     void percentageJobTest() {
         doNothing().when(PercentageServiceImplMock).getPercentageFromExternalService();
-        percentageJob.getPercentage();
+        percentageJobMock.getPercentage();
     }
 }

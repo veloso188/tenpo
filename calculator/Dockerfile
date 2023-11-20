@@ -1,4 +1,5 @@
-FROM ubuntu:latest
+FROM openjdk:17
 LABEL authors="gabriel"
-
-ENTRYPOINT ["top", "-b"]
+EXPOSE 8080
+ADD target/calculator.jar calculator.jar
+ENTRYPOINT ["java", "-jar","calculator.jar"]

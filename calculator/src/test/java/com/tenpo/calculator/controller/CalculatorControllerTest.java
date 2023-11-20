@@ -11,6 +11,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
@@ -18,6 +19,7 @@ import java.util.ArrayList;
 
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 public class CalculatorControllerTest {
     @Autowired
     CalculatorController calculatorController;
@@ -48,7 +50,7 @@ public class CalculatorControllerTest {
             ResponseEntity<String> response;
             response = restTemplate.getForEntity(("http://localhost:" + serverPort + "/api/v1/calculator/getValue?operand1=ZZ1&operand2=12.5"), String.class);
         } catch (HttpClientErrorException httpServerErrorException) {
-          return;
+            Assertions.assertEquals(httpServerErrorException.getStatusCode(), HttpStatus.BAD_REQUEST);
         }
     }
 
@@ -59,8 +61,34 @@ public class CalculatorControllerTest {
             ResponseEntity<String> response;
             response = restTemplate.getForEntity(("http://localhost:" + serverPort + "/api/v1/calculator/getValue?operand2=12.5"), String.class);
         } catch (HttpClientErrorException httpServerErrorException) {
-            return;
+            Assertions.assertEquals(httpServerErrorException.getStatusCode(), HttpStatus.BAD_REQUEST);
         }
+    }
+
+    private void askOneRequestIgnoringErros(){
+        try {
+            Thread.sleep(1);
+            RestTemplate restTemplate = new RestTemplate();
+            ResponseEntity<String> response;
+            response = restTemplate.getForEntity(("http://localhost:" + serverPort + "/api/v1/calculator/getValue?operand1=1&operand2=12.5"), String.class);
+        } catch (Exception e) {
+        }
+        return;
+    }
+    @Test
+    void maxAttempts() {
+
+        for (int i= 1;i<3+1;i++) {
+            this.askOneRequestIgnoringErros();
+        }
+        try {
+            RestTemplate restTemplate = new RestTemplate();
+            ResponseEntity<String> response;
+            response = restTemplate.getForEntity(("http://localhost:" + serverPort + "/api/v1/calculator/getValue?operand1=1&operand2=12.5"), String.class);
+        } catch (HttpClientErrorException httpServerErrorException) {
+            Assertions.assertEquals(httpServerErrorException.getStatusCode(), HttpStatus.TOO_MANY_REQUESTS);
+        }
+
     }
 }
 

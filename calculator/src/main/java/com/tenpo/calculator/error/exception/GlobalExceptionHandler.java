@@ -31,20 +31,20 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<ExceptionMessageDTO> (response, HttpStatus.valueOf(httpClientErrorException.getStatusCode().value())) ;
     }
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
-    public ResponseEntity<ExceptionMessageDTO> defaultException (HttpServletRequest httpServletRequest, MethodArgumentTypeMismatchException methodArgumentNotValidException) {
+    public ResponseEntity<ExceptionMessageDTO> methodArgumentTypeMismatchException (HttpServletRequest httpServletRequest, MethodArgumentTypeMismatchException methodArgumentTypeMismatchException) {
         ExceptionMessageDTO response = new ExceptionMessageDTO(
                 LocalDateTime.now(),
                 HttpStatus.BAD_REQUEST.value(),
                 HttpStatus.BAD_REQUEST.getReasonPhrase(),
-                 "Wrong data type for: " + methodArgumentNotValidException.getParameter().getParameterName(),
+                 "Wrong data type for: " + methodArgumentTypeMismatchException.getParameter().getParameterName(),
                 httpServletRequest.getServletPath()
         );
-        log.error(methodArgumentNotValidException.getMessage(), methodArgumentNotValidException);
+        log.error(methodArgumentTypeMismatchException.getMessage(), methodArgumentTypeMismatchException);
         return new ResponseEntity<ExceptionMessageDTO> (response, HttpStatus.BAD_REQUEST) ;
     }
 
     @ExceptionHandler(MissingServletRequestParameterException.class)
-    public ResponseEntity<ExceptionMessageDTO> defaultException (HttpServletRequest httpServletRequest, MissingServletRequestParameterException missingServletRequestParameterException) {
+    public ResponseEntity<ExceptionMessageDTO> missingServletRequestParameterException (HttpServletRequest httpServletRequest, MissingServletRequestParameterException missingServletRequestParameterException) {
         ExceptionMessageDTO response = new ExceptionMessageDTO(
                 LocalDateTime.now(),
                 HttpStatus.BAD_REQUEST.value(),
