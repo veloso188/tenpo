@@ -53,13 +53,13 @@ mock_server.percentage=10.0
 ### Ejecutando la aplicación desde los contenedores
 1) Descargar el archivo `docker-compose` de `tenpo/calculator`
 2) Posicionarse en la carpeta donde se descargó el archivo y ejecutar `docker-compose up -d`
-3) Probar el servicio Calculator en http://localhost:8080/swagger-ui/index.html
+3) Probar el servicio calculator en http://localhost:8080/swagger-ui/index.html
 4) Probar el serrvicio calculator y mock-server con las colecciones postman enviadas en el correo
 
 ### Ejecutando la aplicación desde el entorno de desarrollo local.
 1) Clonar calculator y mock-server projects desde git
-2) Reemplazar el contenido del `docker-compose.yml` file con el de `docker-compose.local`
-3) Actualizar a localhost las urls de la base de datos y del servicio percentagecon localhost
+2) Reemplazar el contenido del archivo `docker-compose.yml` con el de `docker-compose.local`
+3) Actualizar a localhost las urls de la base de datos y del servicio percentage con localhost
 4) Ejecutar `docker-compose up -d`
 5) Iniciar calculator / mock-server y ejecutar las pruebas deseadas
 
