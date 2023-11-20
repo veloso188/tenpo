@@ -6,19 +6,17 @@
 2) Mock-server
 
 ### Running the application from containers
-1) Download the `docker-compose` file from `tenpo/calculator`
-2) Go to the download folder and run `docker-compose up -d`
+1) Clone tenpo procject from git
+2) Run `tenpo/docker-compose up -d`
 3) Test the calculator service on http://localhost:8080/swagger-ui/index.html
 4) Test the calculator and mock server by the postman collection provided `/postman` of each project
 
 ### Running the application from IDE.
-1) Clone calculator and mock-server projects from git
-2) Replace the `docker-compose.yml` file content with `docker-compose.local`
-3) Update the db and `percentage.service` url to `localhost`
-4) Run `docker-compose up -d`
-5) Start calculator / mock-server
-6) Test the calculator service on http://localhost:8080/swagger-ui/index.html
-7) Test the calculator and mock server by the postman collection provided `/postman` of each project
+1) Clone tenpo procject from git
+2) Run `tenpo/calculator/docker-compose up -d`
+3) Start calculator / mock-server form the IDE ports (8080 and 8081). For a successful test start fist the mock-server
+4) Test the calculator service on http://localhost:8080/swagger-ui/index.html
+5) Test the calculator and mock server by the postman collection provided `/postman` of each project
 
 ### Considerations
 1) The database is in create mode, so with each restart the data will be lost. If it is required it can be changed form application.propreties file
@@ -33,12 +31,13 @@ percentage.service.url=http://mock-server:8081/api/v1/percentage/getPercentage
 percentage.job.refresh_interval=60000
 percentage.job.enabled=true
 ```
-3) This is the default configuration for mock-server:
+4) This is the default configuration for mock-server:
 ```
 server.port=8081
 spring.autoconfigure.exclude=org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
 mock_server.percentage=10.0
 ```
+5) To run the docker file, replace the database and mock-server url to localhost in calculator/application.properties 
 
 ### Docker images
 1) https://hub.docker.com/r/gveloso/calculator
@@ -53,19 +52,17 @@ mock_server.percentage=10.0
 2) Mock-server
 
 ### Ejecutando la aplicación desde los contenedores
-1) Descargar el archivo `docker-compose` de `tenpo/calculator`
-2) Posicionarse en la carpeta donde se descargó el archivo y ejecutar `docker-compose up -d`
+1) Clonar el proyecto tempo de git
+2) Ejecutar `tenpo/docker-compose up -d`
 3) Probar el servicio calculator en http://localhost:8080/swagger-ui/index.html
 4) Probar el serrvicio calculator y mock-server con las colecciones postman provistas en `/postman` de cada proyecto
 
 ### Ejecutando la aplicación desde el entorno de desarrollo local.
-1) Clonar calculator y mock-server projects desde git
-2) Reemplazar el contenido del archivo `docker-compose.yml` con el de `docker-compose.local`
-3) Actualizar a localhost las urls de la base de datos y del servicio percentage con localhost
-4) Ejecutar `docker-compose up -d`
-5) Iniciar calculator / mock-server 
-6) Probar el servicio calculator en http://localhost:8080/swagger-ui/index.html
-7) Probar el serrvicio calculator y mock-server con las colecciones postman provistas en `/postman` de cada proyecto
+1) Cloar el proyecto tenpo procject de git
+2) Ejecutar `tenpo/calculator/docker-compose up -d`
+3) Iniciar el proyecto calculator / mock-server desde el IDE puertos (8080 and 8081). Para una prueba exitosa iniciar primero el mock-server
+4) Probar el servicio calculator en http://localhost:8080/swagger-ui/index.html
+6) Probar el serrvicio calculator y mock-server con las colecciones postman provistas en `/postman` de cada proyecto
 
 
 ### Consideraciones
@@ -81,12 +78,13 @@ percentage.service.url=http://mock-server:8081/api/v1/percentage/getPercentage
 percentage.job.refresh_interval=60000
 percentage.job.enabled=true
 ```
-3) Esta es la configuración por defecto del mock-server:
+4) Esta es la configuración por defecto del mock-server:
 ```
 server.port=8081
 spring.autoconfigure.exclude=org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
 mock_server.percentage=10.0
 ```
+5) Para ejecutar el docker file, reemplazar la url de la base de datos y del mock-sever a localhost en calculator/application.properties
 
 ### Imagenes Docker
 1) https://hub.docker.com/r/gveloso/calculator
